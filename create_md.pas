@@ -48,8 +48,19 @@ begin
             readln(work^.value.children_number);
             writeln('Enter teacher name');
             readln(work^.value.teacher_name);
-            writeln('Enter group type');
-            readln(work^.value.group_type);
+            repeat
+                {$i-}
+                writeln('Enter group type');
+                readln(work^.value.group_type);
+                if IOResult<>0 then  
+                    begin
+                        {Incorrect input message}
+                        writeln('Error input, enter correct value:');
+                        writeln('yaselnaya, mladshaya, srednaya, starshaya');
+                    end
+                else break;
+                {$i+}
+            until false;
             work^.next := nil;
         end;
     {end for i}

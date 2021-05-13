@@ -42,7 +42,7 @@ implementation
         curent_item:=1;
         repeat
             gotoxy(1,curent_item);
-            textbackground(blue);
+            textbackground(green);
             {Output item menu with index curent_item}
             write(menu[curent_item]);
             key_code:=readkey;

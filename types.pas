@@ -4,8 +4,8 @@ unit types;
 interface
     uses crt;
     const menu_fields_num = 7;
-          x = 20;
-          y = 10;
+          x = 1;
+          y = 6;
 
     type
         menu_array = array[1..menu_fields_num] of string;

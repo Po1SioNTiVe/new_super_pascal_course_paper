@@ -20,8 +20,8 @@ implementation
     procedure print_head;
     begin
         {Tables head}
-        writeln('+==+==============+=====================+========================+==============+');
-        writeln('| N|  Group code  |   Children number   |      Teacher name      |  Group type  |');
+        writeln('+==+==============+=====================+====================+============+');
+        writeln('| N|  Group code  |   Children number   |    Teacher name    | Group type |');
     end;
 
 
@@ -29,7 +29,7 @@ implementation
     procedure print_bot;
     begin
         {Table's bot}
-        writeln('+==+==============+=====================+========================+==============+');
+        writeln('+==+==============+=====================+====================+============+');
     end;
 
     {Print one row}
@@ -47,28 +47,28 @@ implementation
         write(work^.value.group_code);
 
         {Alignment group_code}
-        if {!!!CHANGE here->}20>length(work^.value.group_code) then
-            for x:=1 to 20-length(work^.value.group_code) do
+        if 12>length(work^.value.group_code) then
+            for x:=1 to 12-length(work^.value.group_code) do
                 write(' ');
             {endfor x}
         {endif}
 
         {Print children_number}      
-        write(' |',work^.value.children_number:{!!!CHANGE here->}10,' |');
+        write(' |',work^.value.children_number:20,' |');
 
-        {Print Points}
-        write(work^.value.teacher_name:{!!!CHANGE here->}9,' |');
+        {Print teacher_name}
+        write(work^.value.teacher_name:19,' |');
 
         {Print group_type} 
         case work^.value.group_type of
             yaselnaya:
-                {!!!CHANGE length here->} write(' Yaselnaya ');
+                write(' Yaselnaya  ');
             mladshaya: 
-                {!!!CHANGE length here->} write(' Mladshaya ');
+                write(' Mladshaya  ');
             srednaya: 
-                {!!!CHANGE length here->} write(' Srednaya  ');
+                write(' Srednaya   ');
             starshaya:
-                {!!!CHANGE length here->} write(' Starshaya ');
+                write(' Starshaya  ');
         end;
         writeln('|'); 
     end;
@@ -83,7 +83,7 @@ implementation
         {Print body}
         repeat
             i:= i + 1;
-            if i=20 then
+            if i mod 20 = 0  then
                 begin
                     print_row(i,work);
                     print_bot;

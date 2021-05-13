@@ -16,8 +16,8 @@ interface
     {Going to work with another MD}
     procedure swap_md(var work_link:a; first_md,second_md:a);
 
-    {TO BE IMPLEMENTED}
-    procedure create_new_md();
+    {Saving the specified item in the second MD}
+    procedure Saving_el(start1:a;start2:a; index_current_value:integer);
 
     {Adding all elements of the current MD to the end of the second MD.}
     procedure adding_all_to_second_md(start1:a;start2:a);
@@ -141,13 +141,45 @@ implementation
         {endif}
     end;
 
-    {TO BE IMPLEMENTED}
-    procedure create_new_md();
-    var a:byte;
+
+    {Saving the specified item in the second MD}
+    procedure Saving_el(start1:a;start2:a; index_current_value:integer);
+    var i,find:integer;
+        work,work2:a;
     begin
-        writeln('create_new_md procedure');
-        readln();
+        clrscr;
+        i:=0;
+        Write('Enter number you want:');
+        readln(find);
+        work:=start1;
+        {Finding the right item}
+        repeat
+            i:= i + 1;
+            if find = i then
+                break;
+            {endif}
+            work:=work^.next;
+        until work = nil;
+        {Message about empty link}
+        if work = nil then 
+            {Message about empty element}
+            writeln('Nothing found')
+        else
+            begin
+                work2:=start2;
+                {Going to the end of the second md}
+                repeat
+                    work2:=work2^.next
+                until work2^.next=nil;
+                {Saving the specified item in the second MD}
+                new(work2^.next);
+                work2:=work2^.next;
+                work2^.value:=work^.value;
+                work2^.next:=nil;
+            end;
+        {endif}
     end;
+
 
     {Adding all elements of the current MD to the end of the second MD.}
     procedure adding_all_to_second_md(start1:a;start2:a);

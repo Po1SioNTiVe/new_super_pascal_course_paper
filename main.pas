@@ -3,7 +3,7 @@ uses crt, print_table, types, menu, procedures, load_md;
 
 var k, i, w:integer;
     str_menu_array:menu_array = ('Add new element', 'Print current MD', 
-    'Fing element', 'Swap MD', 'Create new MD with key field', 
+    'Fing element', 'Swap MD', 'Save specified element to the second md', 
     'Add all elements of curent MD to the end of 2nd MD', 'Exit program');
     
     start_1,start_2,work,work_link:a;
@@ -45,7 +45,7 @@ begin
         case k of
             {Add new element to the end of the curent MD}
             1:add_new_el(work_link, i);
-            {Print all elements of the curent MD}
+            {Print all elements of the curent MD }
             2:print_current_md(work_link, i);
             {Find element by index}
             3:find_el(work_link, i);
@@ -54,8 +54,14 @@ begin
                     i := 1;
                     swap_md(work_link, start_1, start_2);
                 end;
-            {Create new MD from all elements with key field}
-            5:create_new_md();
+            {Saving the specified item in the second MD}
+            5:  begin
+                    if work_link = start_1 then 
+                        saving_el(work_link,start_2,i)
+                    else 
+                        saving_el(work_link,start_1,i);
+                    {endif}
+                end;
             {Add all elements from the current MD to the end of the 2nd MD}
             6:  begin
                     if work_link = start_1 then

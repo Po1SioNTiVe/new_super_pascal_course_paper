@@ -51,6 +51,7 @@ implementation
         new_md(start_1,'m1.txt');
         {load m2.txt}
         new_md(start_2,'m2.txt');
+        writeln('Workink with md1');
         writeln('Press any key');
         readln();
     end;
