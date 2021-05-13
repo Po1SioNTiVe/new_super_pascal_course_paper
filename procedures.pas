@@ -17,7 +17,7 @@ interface
     procedure swap_md(var work_link:a; first_md,second_md:a);
 
     {Saving the specified item in the second MD}
-    procedure Saving_el(start1:a;start2:a; index_current_value:integer);
+    procedure saving_el(start1:a;start2:a; index_current_value:integer);
 
     {Adding all elements of the current MD to the end of the second MD.}
     procedure adding_all_to_second_md(start1:a;start2:a);

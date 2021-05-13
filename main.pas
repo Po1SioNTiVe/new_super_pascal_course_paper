@@ -3,7 +3,7 @@ uses crt, print_table, types, menu, procedures, load_md;
 
 var k, i, w:integer;
     str_menu_array:menu_array = ('Add new element', 'Print current MD', 
-    'Fing element', 'Swap MD', 'Save specified element to the second md', 
+    'Find element', 'Swap MD', 'Save specified element to the second md', 
     'Add all elements of curent MD to the end of 2nd MD', 'Exit program');
     
     start_1,start_2,work,work_link:a;
